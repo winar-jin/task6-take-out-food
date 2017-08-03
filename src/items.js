@@ -1,4 +1,5 @@
-module.exports = function loadAllItems() {
+// module.exports = function loadAllItems() {
+function loadAllItems() {
   return [{
     id: 'ITEM0001',
     name: '黄焖鸡',

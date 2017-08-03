@@ -1,12 +1,39 @@
 // 请把与index.html页面相关的javascript代码写在这里
 // 同时删除该注释
+const allFoods = loadAllItems();
+const allPromotions = loadPromotions();
+
+function insertAllFoods() {
+  allFoods.forEach(food => {
+    let foodDiv = document.createElement('div');
+    let innerHtml = `<span>${food.name}</span><span>${food.price}</span>`;
+    foodDiv.innerHTML = innerHtml;
+    let itemsContainer = document.getElementById('items');
+    itemsContainer.appendChild(foodDiv);
+  });
+}
+
+function insertAllPromotions() {
+  allPromotions.forEach(promotion => {
+    let promotionDiv = document.createElement('div');
+    let innerHtml = `<span>${promotion.type}</span><span>${promotion.items?promotion.items:''}</span>`;
+    promotionDiv.innerHTML = innerHtml;
+    let itemsContainer = document.getElementById('promotions');
+    itemsContainer.appendChild(promotionDiv);
+  });
+}
+
+function clearCharge() {
+  document.getElementById('message').innerHTML = '';
+}
 
 function calculatePrice() {
-  // 想办法调用`bestCharge`并且把返回的字符串
-  // 显示在html页面的`message`中
+  let inputs = ["ITEM0001 x 1", "ITEM0013 x 2", "ITEM0022 x 1"];
+  let chargeString = bestCharge(inputs);
+  document.getElementById('message').textContent = chargeString;
 }
 
-function clear() {
-  // 清除用户的选择，以及页面显示的信息
-  // 清除之后，用户可以继续正常使用各项功能
-}
+window.onload = _ => {
+  insertAllFoods();
+  insertAllPromotions();
+};
