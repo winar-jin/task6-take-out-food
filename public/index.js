@@ -1,5 +1,6 @@
-const allFoods = loadAllItems();
-const allPromotions = loadPromotions();
+const allFoods = require('../src/items.js')();
+const allPromotions = require('../src/promotions.js')();
+const bestCharge = require('../src/best-charge.js');
 
 function insertAllFoods() {
   allFoods.forEach(food => {
@@ -67,14 +68,14 @@ function cartControl() {
   return {
     addOne: function (id) {
       cartInfo[id] = cartInfo[id] ? ++cartInfo[id] : 1;
-      
+
       paintMenu();
     },
     minusOne: function (id) {
       if (cartInfo[id] >= 1) {
         --cartInfo[id];
         cartInfo[id] === 0 ? delete cartInfo[id] : null;
-        
+
       } else {
         alert('您尚未购买该商品！');
       }
@@ -88,10 +89,10 @@ function cartControl() {
     },
     getCharge: function () {
       let cartItems = [];
-      for(let id in cartInfo){
+      for (let id in cartInfo) {
         cartItems.push(`${id} x ${cartInfo[id]}`);
       }
-     return  bestCharge(cartItems);
+      return bestCharge(cartItems);
     }
   }
 }
@@ -125,15 +126,15 @@ function minusOne(id) {
 
 function clearCharge() {
   cartInfo.clearCharge();
-  paintCheck('',false);
+  paintCheck('', false);
 }
 
 function calculatePrice() {
-  let checkString =  cartInfo.getCharge();
-  paintCheck(checkString,true);
+  let checkString = cartInfo.getCharge();
+  paintCheck(checkString, true);
 }
 
-function paintCheck(checkString,flag){
+function paintCheck(checkString, flag) {
   let message = document.getElementById('message');
   flag ? message.classList.remove('disable') : message.classList.add('disable');
   message.innerHTML = checkString;
@@ -142,4 +143,6 @@ function paintCheck(checkString,flag){
 window.onload = _ => {
   insertAllFoods();
   insertAllPromotions();
+  document.querySelector('.tools .calculatePrice').addEventListener('click', calculatePrice);
+  document.querySelector('.tools .clearCharge').addEventListener('click', clearCharge);
 };
