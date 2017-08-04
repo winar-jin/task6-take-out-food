@@ -1,6 +1,7 @@
-const loadAllItems = require('./items.js');
-const loadPromotions = require('./promotions.js');
-module.exports = function bestCharge(selectedItems) {
+// const loadAllItems = require('./items.js');
+// const loadPromotions = require('./promotions.js');
+// module.exports = function bestCharge(selectedItems) {
+function bestCharge(selectedItems) {
   let originItemsInfo = getOriginItemsInfo(selectedItems);
   let promotionsInfo = getPromotionItemsInfo(originItemsInfo);
   let finalPromotion = promotionsInfo[0];

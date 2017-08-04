@@ -1,11 +1,120 @@
-/* 
-请把与index.html页面相关的css代码写在这里
-同时删除该注释
-*/
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	color: whitesmoke;
+	line-height: 1.4em;
+    background: #36D1DC;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h1{
+	text-align: center;
+}
+#container{
+	background: rgba(244, 226, 66,.4);
+	border-radius: 10px;
+}
 
-/* #message只是一个示例，可以删除 */
-#message {
-	line-height: 30px;
+#items{
+	background: rgba(65, 244, 241,.5);
+	border: 2px dotted lightcoral;
 	display: inline-block;
-	border: 1px solid red;
+	margin: 1em;
+	padding: .5em;
+	vertical-align: middle;
+}
+.title{
+	text-align: center;
+	color: blueviolet;
+	font-size: 1.2em;
+	text-shadow: 0 0 10px #ccc;
+}
+.food{
+	font-size: 1.2em;
+	padding: .2em;
+}
+.food__name{
+	margin-right: 10px;
+}
+#promotions{
+	background: rgba(200, 244, 66,.5);
+	border: 2px dotted lightcoral;
+	display: inline-block;
+	margin: 1em;
+	padding: .5em;
+	vertical-align: middle;
+}
+.promotion__items{
+	text-indent: 2em;
+}
+.promotion__items span{
+	display: block;
+}
+.addOne,.minusOne{
+	color: white;
+    outline: none;
+    height: 25px;
+    border: 1px solid lightblue;
+    border-radius: 50%;
+    width: 25px;
+	text-align: center;
+	margin-right: 10px;
+}
+.addOne:hover,.minusOne:hover{
+    box-shadow: 0 0 4px red;
+	cursor: pointer;
+}
+.addOne{
+    background: rgba(199,23,43,.2);
+}
+.minusOne{
+    background: rgba(200,100,100,.2);	
+}
+.tools{
+	margin: 2em;
+}
+.tools button{
+	width: 100px;
+	height: 40px;
+	border-radius: 10px;
+	outline: none;
+	padding-right: 1em;
+	margin: 2em;
+	color: white;
+	font-size: 1em;
+}
+.tools button:hover{
+	cursor: pointer;
+}
+#message{
+	margin: 2em;
+	background: lightyellow;
+	padding: 2em;
+	border-radius: 20px;
+	box-shadow: 0 0 10px lightgoldenrodyellow;
+	color: black;
+	display: inline-block;
+}
+
+.disable{
+	display: none !important;
+}
+#whattoBuy{
+	background: lightcyan;
+	color: black;
+	margin: 2em;
+	padding: 2em;
+	text-align: left;
+}
+#whattoBuy .item .item__name{
+	display: inline-block;
+	width: 150px;
+}
+.buttonGroup{
+	display: inline-block;
+	margin-left: 5px;
 }
